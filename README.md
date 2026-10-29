@@ -1,4 +1,4 @@
-# Tubo – E-Invoicing Platform
+# TUBO InvoiceFlow
 
 Businesses submit invoices to Tubo. Tubo validates and stores them, then submits them asynchronously
 to an external government invoicing API, so that invoices are **never lost and never duplicated**,
