@@ -1,0 +1,35 @@
+{
+  "name": "tubo-backend",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Tubo e-invoicing API, submission worker and mock government API",
+  "scripts": {
+    "dev": "concurrently -n api,worker,gov -c blue,magenta,yellow \"npm:dev:api\" \"npm:dev:worker\" \"npm:dev:gov\"",
+    "dev:api": "node --watch --env-file-if-exists=.env src/server.js",
+    "dev:worker": "node --watch --env-file-if-exists=.env src/worker.js",
+    "dev:gov": "node --watch --env-file-if-exists=.env src/mock-gov/server.js",
+    "start:api": "node --env-file-if-exists=.env src/server.js",
+    "start:worker": "node --env-file-if-exists=.env src/worker.js",
+    "start:gov": "node --env-file-if-exists=.env src/mock-gov/server.js",
+    "migrate": "node --env-file-if-exists=.env src/db/migrate.js",
+    "seed": "node --env-file-if-exists=.env src/db/seed.js",
+    "test": "node --env-file-if-exists=.env --test \"test/**/*.test.js\""
+  },
+  "engines": {
+    "node": ">=22"
+  },
+  "dependencies": {
+    "bcryptjs": "^3.0.3",
+    "cors": "^2.8.6",
+    "express": "^5.3.0",
+    "express-rate-limit": "^8.7.1",
+    "helmet": "^8.3.0",
+    "jsonwebtoken": "^9.0.3",
+    "pg": "^8.23.1",
+    "zod": "^4.6.7"
+  },
+  "devDependencies": {
+    "concurrently": "^10.0.6"
+  }
+}
